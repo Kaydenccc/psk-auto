@@ -1,4 +1,4 @@
-name: Auto Absen
+name: Auto Absen psk
 
 concurrency:
   group: auto-absen
