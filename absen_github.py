@@ -63,7 +63,7 @@ class PusakaAuth:
         self.auth_url = "https://pusaka-auth.kemenag.go.id"
         self.session = requests.Session()
         self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0) Gecko/20100101 Firefox/146.0",
+            "User-Agent": "Dalvik/2.1.0",
             "Accept": "*/*",
             "Accept-Language": "en-US,en;q=0.5",
             "Accept-Encoding": "gzip, deflate, br",
@@ -235,8 +235,8 @@ def main():
         save_cache({})
 
     # DATA ABSEN - HARUS DISIMPAN DI GITHUB SECRETS
-    NIP = os.getenv("PUSAKA_NIP", "199909262025051003")
-    PASSWORD = os.getenv("PUSAKA_PASSWORD", "ASN003260999")
+    NIP = os.getenv("PUSAKA_NIP")
+    PASSWORD = os.getenv("PUSAKA_PASSWORD")
     BASE_LAT = float(os.getenv("BASE_LAT", "-3.2795460218952925"))
     BASE_LON = float(os.getenv("BASE_LON", "119.85262806281504"))
 
