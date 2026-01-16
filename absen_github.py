@@ -203,23 +203,23 @@ def tentukan_jenis_absen(now):
     if hari >= 5:
         return None
 
-    # MASUK: 06:00 – 07:30
+    # in: 06:00 – 07:30
     if dt_time(6, 0) <= jam <= dt_time(7, 30):
-        return "masuk"
+        return "in"
 
-    # PULANG SENIN–KAMIS
+    # out SENIN–KAMIS
     if hari <= 3 and dt_time(16, 0) <= jam <= dt_time(17, 30):
-        return "pulang"
+        return "out"
 
-    # PULANG JUMAT
+    # out JUMAT
     if hari == 4 and dt_time(16, 30) <= jam <= dt_time(18, 0):
-        return "pulang"
+        return "out"
 
     return None
 
 # ================= OFFSET MENIT =================
 def generate_offset(jenis, hari):
-    if jenis == "masuk":
+    if jenis == "in":
         return random.randint(5, 75)   # maksimal 07:15
     if hari == 4:  # Jumat
         return random.randint(5, 45)
@@ -251,7 +251,7 @@ def main():
     print("=" * 50)
 
     jenis = tentukan_jenis_absen(now)
-    if jenis not in ("masuk", "pulang"):
+    if jenis not in ("in", "out"):
         print("⏸️ Di luar jam absen")
         return
 
@@ -280,7 +280,7 @@ def main():
         offset = cache[today][jenis]["offset"]
 
     # ===== JAM DASAR =====
-    if jenis == "masuk":
+    if jenis == "in":
         base_time = dt_time(6, 0)
     elif now.weekday() == 4:
         base_time = dt_time(16, 30)
@@ -291,8 +291,8 @@ def main():
         datetime.combine(now.date(), base_time) + timedelta(minutes=offset)
     ).time()
 
-    # BATAS MASUK 07:30
-    if jenis == "masuk" and target_time > dt_time(7, 30):
+    # BATAS in 07:30
+    if jenis == "in" and target_time > dt_time(7, 30):
         target_time = dt_time(7, 30)
 
     if now.time() < target_time:
@@ -326,7 +326,7 @@ def main():
         # ===== LAKUKAN ABSENSI =====
         success = pusaka.perform_attendance(
             token=token,
-            presence_action="in" if jenis == "masuk" else "out",
+            presence_action="in" if jenis == "in" else "out",
             user_latitude=lat,
             user_longitude=lon
         )
