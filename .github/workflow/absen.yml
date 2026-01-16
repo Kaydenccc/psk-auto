@@ -1,0 +1,46 @@
+name: Auto Absen
+
+concurrency:
+  group: auto-absen
+  cancel-in-progress: true
+
+on:
+  schedule:
+  - cron: "*/10 21-23 * * 1-5"
+  - cron: "*/10 7-9 * * 1-5"
+
+  workflow_dispatch:
+
+jobs:
+  absen:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - run: pip install requests pytz
+
+      - name: Run absen
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ABSEN_MODE: ${{ secrets.ABSEN_MODE }}
+          PUSAKA_NIP: ${{ secrets.PUSAKA_NIP }}
+          PUSAKA_PASSWORD: ${{ secrets.PUSAKA_PASSWORD }}
+          BASE_LAT: ${{ secrets.BASE_LAT }}
+          BASE_LON: ${{ secrets.BASE_LON }}
+          ABSEN_MODE: ${{ secrets.ABSEN_MODE || 'ON' }}
+        run: python absen_github.py
+
+      - name: Commit cache
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .absen_cache.json
+          git diff --cached --quiet || git commit -m "update absen cache"
+          git pull --rebase origin main
+          git push origin main
