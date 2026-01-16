@@ -28,7 +28,6 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ABSEN_MODE: ${{ secrets.ABSEN_MODE }}
           PUSAKA_NIP: ${{ secrets.PUSAKA_NIP }}
           PUSAKA_PASSWORD: ${{ secrets.PUSAKA_PASSWORD }}
           BASE_LAT: ${{ secrets.BASE_LAT }}
