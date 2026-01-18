@@ -186,7 +186,7 @@ class PusakaAuth:
             print(f"Attendance response: {response.status_code}")
             print(f"Response text: {response.text}")
             
-            if response.status_code == 200:
+            if response.status_code == 201:
                 result = response.json()
                 if result.get("success") or result.get("message"):
                     return True
