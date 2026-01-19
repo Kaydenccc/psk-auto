@@ -9,6 +9,10 @@
     "in": {
       "done": false,
       "offset": 13
+    },
+    "out": {
+      "done": true,
+      "offset": 13
     }
   }
 }
