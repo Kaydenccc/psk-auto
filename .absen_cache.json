@@ -27,7 +27,7 @@
   },
   "2026-01-21": {
     "in": {
-      "done": false,
+      "done": true,
       "offset": 50
     }
   }
