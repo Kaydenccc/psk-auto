@@ -31,7 +31,7 @@
       "offset": 50
     },
     "out": {
-      "done": false,
+      "done": true,
       "offset": 54
     }
   }
