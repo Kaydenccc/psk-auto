@@ -220,10 +220,10 @@ def tentukan_jenis_absen(now):
 # ================= OFFSET MENIT =================
 def generate_offset(jenis, hari):
     if jenis == "in":
-        return random.randint(5, 75)   # maksimal 07:15
+        return random.randint(5, 60)   # maksimal 07:15
     if hari == 4:  # Jumat
         return random.randint(5, 45)
-    return random.randint(5, 60)
+    return random.randint(5, 50)
 
 # ================= MAIN =================
 def main():
