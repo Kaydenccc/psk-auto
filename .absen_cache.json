@@ -69,6 +69,10 @@
     "in": {
       "done": true,
       "offset": 48
+    },
+    "out": {
+      "done": true,
+      "offset": 13
     }
   }
 }
