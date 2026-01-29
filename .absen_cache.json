@@ -91,7 +91,7 @@
       "offset": 36
     },
     "out": {
-      "done": false,
+      "done": true,
       "offset": 6
     }
   }
