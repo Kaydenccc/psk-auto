@@ -97,7 +97,7 @@
   },
   "2026-01-30": {
     "in": {
-      "done": false,
+      "done": true,
       "offset": 39
     }
   }
