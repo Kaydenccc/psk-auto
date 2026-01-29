@@ -94,5 +94,11 @@
       "done": true,
       "offset": 6
     }
+  },
+  "2026-01-30": {
+    "in": {
+      "done": false,
+      "offset": 39
+    }
   }
 }
