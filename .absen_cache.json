@@ -99,6 +99,10 @@
     "in": {
       "done": true,
       "offset": 39
+    },
+    "out": {
+      "done": true,
+      "offset": 10
     }
   }
 }
