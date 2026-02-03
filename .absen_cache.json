@@ -127,7 +127,7 @@
   },
   "2026-02-04": {
     "in": {
-      "done": false,
+      "done": true,
       "offset": 60
     }
   }
