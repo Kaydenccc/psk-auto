@@ -237,8 +237,8 @@ def main():
     # DATA ABSEN - HARUS DISIMPAN DI GITHUB SECRETS
     NIP = os.getenv("PUSAKA_NIP")
     PASSWORD = os.getenv("PUSAKA_PASSWORD")
-    BASE_LAT = float(os.getenv("BASE_LAT", "-3.2795460218952925"))
-    BASE_LON = float(os.getenv("BASE_LON", "119.85262806281504"))
+    BASE_LAT = float(os.getenv("BASE_LAT", "-3.279389"))
+    BASE_LON = float(os.getenv("BASE_LON", "119.852500"))
 
     wita = pytz.timezone("Asia/Makassar")
     now = datetime.now(wita)
@@ -299,12 +299,14 @@ def main():
         print(f"⏳ Menunggu jam manusiawi {target_time}")
         return
 
-    # ===== LOKASI ±20m =====
-    r = (20 / 111111) * math.sqrt(random.random())
+    # ===== LOKASI (simulasi GPS HP — akurasi 5-18m, 6 desimal) =====
+    radius = random.uniform(5, 18)  # HP asli tidak selalu max range
+    r = (radius / 111111) * math.sqrt(random.random())
     t = random.random() * 2 * math.pi
     lat = BASE_LAT + r * math.cos(t)
     lon = BASE_LON + r * math.sin(t) / math.cos(math.radians(BASE_LAT))
-    lokasi = f"{round(lat,7)},{round(lon,7)}"
+    # 6 desimal = akurasi ~10cm (seperti GPS HP, bukan 7 = 1cm)
+    lokasi = f"{round(lat,6)},{round(lon,6)}"
 
     print(f"📍 Lokasi: {lokasi}")
     print(f"📝 Jenis: {jenis}")
