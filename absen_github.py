@@ -237,8 +237,8 @@ def main():
     # DATA ABSEN - HARUS DISIMPAN DI GITHUB SECRETS
     NIP = os.getenv("PUSAKA_NIP")
     PASSWORD = os.getenv("PUSAKA_PASSWORD")
-    BASE_LAT = float(os.getenv("BASE_LAT", "-3.279389"))
-    BASE_LON = float(os.getenv("BASE_LON", "119.852500"))
+    BASE_LAT = float(os.getenv("BASE_LAT", "-3.279515"))
+    BASE_LON = float(os.getenv("BASE_LON", "119.852572"))
 
     wita = pytz.timezone("Asia/Makassar")
     now = datetime.now(wita)
