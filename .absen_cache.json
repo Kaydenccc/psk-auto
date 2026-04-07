@@ -459,7 +459,7 @@
       "offset": 24
     },
     "out": {
-      "done": false,
+      "done": true,
       "offset": 25
     }
   }
