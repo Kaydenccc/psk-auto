@@ -482,5 +482,11 @@
       "done": true,
       "offset": 19
     }
+  },
+  "2026-04-10": {
+    "in": {
+      "done": false,
+      "offset": 30
+    }
   }
 }
