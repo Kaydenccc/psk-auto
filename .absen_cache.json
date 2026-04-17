@@ -537,6 +537,10 @@
     "in": {
       "done": true,
       "offset": 16
+    },
+    "out": {
+      "done": true,
+      "offset": 16
     }
   }
 }
