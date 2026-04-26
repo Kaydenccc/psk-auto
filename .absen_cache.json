@@ -595,7 +595,7 @@
   },
   "2026-04-27": {
     "in": {
-      "done": false,
+      "done": true,
       "offset": 7
     }
   }
