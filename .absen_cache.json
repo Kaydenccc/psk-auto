@@ -607,6 +607,10 @@
     "in": {
       "done": true,
       "offset": 8
+    },
+    "out": {
+      "done": true,
+      "offset": 12
     }
   }
 }
