@@ -704,5 +704,11 @@
       "done": true,
       "offset": 30
     }
+  },
+  "2026-05-13": {
+    "in": {
+      "done": false,
+      "offset": 19
+    }
   }
 }
