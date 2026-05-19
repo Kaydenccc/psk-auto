@@ -725,7 +725,7 @@
   },
   "2026-05-20": {
     "in": {
-      "done": false,
+      "done": true,
       "offset": 19
     }
   }
