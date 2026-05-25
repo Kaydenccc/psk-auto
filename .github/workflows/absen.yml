@@ -33,7 +33,7 @@ jobs:
           PUSAKA_PASSWORD:  ${{ secrets.PUSAKA_PASSWORD }}
           BASE_LAT:         ${{ secrets.BASE_LAT }}
           BASE_LON:         ${{ secrets.BASE_LON }}
-          ABSEN_MODE:       ${{ vars.ABSEN_MODE }}
+          ABSEN_MODE:       ${{ secrets.ABSEN_MODE }}
         run: python absen_github.py
       - name: Commit cache
         run: |
