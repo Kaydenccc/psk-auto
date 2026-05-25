@@ -1,40 +1,40 @@
 name: Auto Absen psk
-
 concurrency:
   group: auto-absen
   cancel-in-progress: true
 
 on:
   schedule:
-  - cron: "*/10 21-23 * * 0-4"
-  - cron: "*/10 7-9 * * 1-5"
+    # MASUK: 06:00-07:30 WITA = 22:00-23:30 UTC (hari sebelumnya)
+    - cron: "*/10 22-23 * * 0-4"
+
+    # PULANG Senin-Kamis: 16:00-17:30 WITA = 08:00-09:30 UTC
+    - cron: "*/10 8-9 * * 1-4"
+
+    # PULANG Jumat: 16:30-18:00 WITA = 08:30-10:00 UTC
+    - cron: "*/10 8-10 * * 5"
 
   workflow_dispatch:
 
 jobs:
   absen:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.9"
-
       - run: pip install requests pytz
-
       - name: Run absen
         env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TOKEN:   ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          PUSAKA_NIP: ${{ secrets.PUSAKA_NIP }}
-          PUSAKA_PASSWORD: ${{ secrets.PUSAKA_PASSWORD }}
-          BASE_LAT: ${{ secrets.BASE_LAT }}
-          BASE_LON: ${{ secrets.BASE_LON }}
-          ABSEN_MODE: ${{ secrets.ABSEN_MODE || 'ON' }}
+          PUSAKA_NIP:       ${{ secrets.PUSAKA_NIP }}
+          PUSAKA_PASSWORD:  ${{ secrets.PUSAKA_PASSWORD }}
+          BASE_LAT:         ${{ secrets.BASE_LAT }}
+          BASE_LON:         ${{ secrets.BASE_LON }}
+          ABSEN_MODE:       ${{ vars.ABSEN_MODE }}
         run: python absen_github.py
-
       - name: Commit cache
         run: |
           git config user.name "github-actions"
