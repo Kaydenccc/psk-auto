@@ -5,11 +5,11 @@ concurrency:
 
 on:
   schedule:
-    # MASUK: 06:00-07:30 WITA = 22:00-23:30 UTC (hari sebelumnya)
+    # MASUK: 06:00-07:30 WITA = 22:00-23:30 UTC
     - cron: "*/10 22-23 * * 0-4"
     # PULANG Senin-Kamis: 16:00-17:30 WITA = 08:00-09:30 UTC
-    - cron: "*/10 8-9 * * 1-4"
-    # PULANG Jumat: 16:30-18:00 WITA = 08:30-10:00 UTC
+    - cron: "*/10 8-10 * * 1-4"
+    # PULANG Jumat: 16:30-17:30 WITA = 08:30-09:30 UTC
     - cron: "*/10 8-10 * * 5"
   workflow_dispatch:
 
