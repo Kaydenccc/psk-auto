@@ -52,5 +52,11 @@
       "done": false,
       "offset": 7
     }
+  },
+  "2026-07-13": {
+    "in": {
+      "done": true,
+      "offset": 10
+    }
   }
 }
