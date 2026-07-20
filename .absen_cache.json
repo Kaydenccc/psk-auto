@@ -92,5 +92,11 @@
       "done": false,
       "offset": 27
     }
+  },
+  "2026-07-21": {
+    "in": {
+      "done": true,
+      "offset": 24
+    }
   }
 }
