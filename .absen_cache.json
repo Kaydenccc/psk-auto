@@ -221,6 +221,10 @@
     "in": {
       "done": true,
       "offset": 12
+    },
+    "out": {
+      "done": false,
+      "offset": 6
     }
   }
 }
