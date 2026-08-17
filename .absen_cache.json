@@ -236,5 +236,11 @@
       "done": true,
       "offset": 30
     }
+  },
+  "2026-08-18": {
+    "in": {
+      "done": false,
+      "offset": 27
+    }
   }
 }
